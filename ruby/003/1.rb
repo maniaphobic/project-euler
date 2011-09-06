@@ -1,29 +1,34 @@
 #!/usr/bin/env ruby1.9
 
 def factors_of(n)
-  n += 0.0
-  i = 2
   factors = []
+  factors << 2 if n%2 == 0
+  i = 3
   while i < n
-    puts "#{i}" if n%i == 0
+    factors << i if n%i == 0
+    i += 2
   end
+  return factors
 end
 
 def is_prime(n)
-  i = 2
-  n += 0.0
-  while i < n
-    divisor = n/i
-    return true if divisor == divisor.floor()
-    i++
+  sq_root = Math.sqrt(n).ceil
+  return true if n%2 == 0
+  i = 3
+  while i < sq_root
+    return false if n%i == 0
+    i += 2
   end 
-  return false 
+  return true
 end
 
 #
 #
 #
 
-factors_of(50)
-#puts is_prime(25)
+n = ARGV[0].to_i
+factors_of(n).each do |f|
+  print f
+  puts is_prime(f) ? ' (prime)' : ''
+end
 
