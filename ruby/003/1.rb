@@ -1,7 +1,12 @@
 #!/usr/bin/env ruby1.9
 
 def factors_of(n)
- 1
+  n += 0.0
+  i = 2
+  factors = []
+  while i < n
+    puts "#{i}" if n%i == 0
+  end
 end
 
 def is_prime(n)
@@ -19,5 +24,6 @@ end
 #
 #
 
-puts is_prime(25)
+factors_of(50)
+#puts is_prime(25)
 
