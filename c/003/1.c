@@ -9,7 +9,7 @@ long *factor(long n) {
   long *factors = (long *) NULL;
   int factor_count = 0;
   long half_n = n/2;
-  int p;
+  long p;
 
   if (n%2 == 0) {
     factors = (long *) realloc(factors, (factor_count+1) * sizeof(long));
@@ -18,12 +18,15 @@ long *factor(long n) {
 
   p = 3;
   while (TRUE) {
+    /*
+    printf("%ld\n", p);
+    */
     if (p >= half_n)
       break;
     if (n%p == 0 && is_prime(p)) {
       factors = (long *) realloc(factors, (factor_count+1) * sizeof(long));
       factors[factor_count++] = p;
-      printf("%d\n", p);
+      printf("%ld\n", p);
     }
     p += 2;
   }
